@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function login(username, password) {
   return request({
-    url: '/admin/login',
+    url: '/api-uaa/oauth/user/token',
     method: 'post',
     data: {
       username,
@@ -13,7 +13,7 @@ export function login(username, password) {
 
 export function getInfo() {
   return request({
-    url: '/admin/info',
+    url: '/api-user/users/info',
     method: 'get',
   })
 }
@@ -62,6 +62,7 @@ export function deleteAdmin(id) {
     url: '/admin/delete/' + id,
     method: 'post'
   })
+
 }
 
 export function getRoleByAdmin(id) {

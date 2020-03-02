@@ -34,6 +34,9 @@ function hasPermission(menus, route) {
 
 //根据路由名称获取菜单
 function getMenu(name, menus) {
+  if(!menus){
+    return null;
+  }
   for (let i = 0; i < menus.length; i++) {
     let menu = menus[i];
     if (name===menu.name) {

@@ -31,7 +31,8 @@ const user = {
       return new Promise((resolve, reject) => {
         login(username, userInfo.password).then(response => {
           const data = response.data
-          const tokenStr = data.tokenHead+data.token
+          debugger;
+          const tokenStr = data.access_token
           setToken(tokenStr)
           commit('SET_TOKEN', tokenStr)
           resolve()
@@ -45,6 +46,7 @@ const user = {
     GetInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
         getInfo().then(response => {
+          debugger;
           const data = response.data
           if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
             commit('SET_ROLES', data.roles)
